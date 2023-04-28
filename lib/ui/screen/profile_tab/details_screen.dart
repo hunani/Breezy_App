@@ -83,9 +83,7 @@ class DetailsScreen extends StatelessWidget {
                   ),
                   Spacer(),
                   GestureDetector(
-                    onTap: () {
-                      Get.toNamed(PremiumScreen.routeName);
-                    },
+                    onTap: () {},
                     child: Container(
                       width: 150,
                       height: 180,

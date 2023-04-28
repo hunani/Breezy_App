@@ -64,6 +64,7 @@ class AppAssets {
   static const String payImage = "assets/icon/pay.png";
   static const String iphoneImage = "assets/icon/iphone.png";
   static const String bioImage = "assets/icon/bio.png";
+  static const String aro = "assets/icon/aeero.png";
   static const String androidsImage =
       "assets/icon/png-transparent-smartphone-feature-phone-mobile-phones-fingerprint-vivo-smartphone-gadget-electronics-mobile-phone-removebg-preview 1.png";
 }

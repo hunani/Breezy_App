@@ -197,7 +197,15 @@ class _SplashScreenState extends State<SplashScreen> {
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(height: 150),
+                          const SizedBox(height: 20),
+                          Center(
+                            child: Container(
+                              height: 2,
+                              width: 130,
+                              color: AppColor.kAppColor,
+                            ),
+                          ),
+                          const SizedBox(height: 130),
                         ],
                       ),
                     ),

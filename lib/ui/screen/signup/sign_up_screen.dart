@@ -16,6 +16,21 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  Future _selectDate() async {
+    DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(2020),
+        lastDate: new DateTime(2030));
+    if (picked != null)
+      setState(
+        () => {
+          //data.registrationdate = picked.toString(),
+          dateController.text = picked.toString()
+        },
+      );
+  }
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController dateController = TextEditingController();
@@ -78,12 +93,60 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Row(
                           children: [
                             Expanded(
-                              child: CustomTextField(
-                                validator: (val) => val!.trim().isEmpty
-                                    ? "field required"
-                                    : null,
-                                textFieldType: TextFieldType.date,
-                                textEditingController: dateController,
+                              child: TextFormField(
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontFamily: "Poppins"),
+                                autocorrect: false,
+                                readOnly: true,
+                                controller: dateController,
+                                onSaved: (value) {
+                                  //data.registrationdate = value;
+                                },
+                                onTap: () {
+                                  _selectDate();
+                                  FocusScope.of(context)
+                                      .requestFocus(new FocusNode());
+                                  print("object =======> ${_selectDate()}");
+                                },
+                                validator: (value) {
+                                  if (value!.isEmpty || value.length < 1) {
+                                    return 'Choose Date';
+                                  }
+                                },
+                                decoration: InputDecoration(
+                                  fillColor: Color(0xfff9f9f9),
+                                  errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide:
+                                        BorderSide(color: Colors.black12),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                    borderSide:
+                                        BorderSide(color: AppColor.kAppColor),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: BorderSide.none),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: BorderSide.none),
+                                  hintStyle:
+                                      TextStyle(color: Color(0xff828894)),
+                                  contentPadding:
+                                      const EdgeInsets.only(top: 20, left: 15),
+                                  hintText: "Date of Birth",
+                                  filled: true,
+                                  focusColor: Color(0xffF8F7FB),
+                                  suffixIcon: Padding(
+                                    padding: const EdgeInsets.all(18),
+                                    child:
+                                        Image.asset(AppAssets.aro, height: 10),
+                                  ),
+                                ),
                               ),
                             ),
                             SizedBox(width: 10),
