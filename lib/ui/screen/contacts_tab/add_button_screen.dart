@@ -79,6 +79,7 @@ class AddButton extends StatelessWidget {
                                     )),
                                 SizedBox(width: 15),
                                 Image.asset(AppAssets.bioImage, height: 20),
+                                SizedBox(width: 5),
                                 Text("231",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,

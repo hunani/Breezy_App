@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../const/app_color.dart';
+import '../const/app_icon.dart';
 
 enum TextFieldType {
   userName,
@@ -171,6 +172,11 @@ class CustomTextField extends StatelessWidget {
                 shape: BoxShape.circle, color: AppColor.kAppColor),
             child: Icon(Icons.done, color: Colors.white, size: 12),
           ),
+        );
+      case TextFieldType.gander:
+        return Padding(
+          padding: const EdgeInsets.all(18),
+          child: Image.asset(AppAssets.aro, height: 10),
         );
       default:
         return null;
